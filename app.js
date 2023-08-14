@@ -16,21 +16,20 @@ const port = process.env.PORT;
 // https.createServer({...}, app).listen(port);
 
 // listen to the server
-// app.listen(port, (req, res) => {
-//   app.use("/", home);
-//   console.log(`Server listening at http://localhost:${port}`);
-// });
+app.listen(port, (req, res) => {
+  app.use("/", home);
+});
 
-https
-  .createServer(
-    // Provide the private and public key to the server by reading each
-    // file's content with the readFileSync() method.
-    {
-      key: fs.readFileSync("key.pem"),
-      cert: fs.readFileSync("cert.pem"),
-    },
-    app
-  )
-  .listen(port, (req, res, next) => {
-    app.use("/", home);
-  });
+// https
+//   .createServer(
+//     // Provide the private and public key to the server by reading each
+//     // file's content with the readFileSync() method.
+//     {
+//       key: fs.readFileSync("key.pem"),
+//       cert: fs.readFileSync("cert.pem"),
+//     },
+//     app
+//   )
+//   .listen(port, (req, res, next) => {
+//     app.use("/", home);
+//   });
