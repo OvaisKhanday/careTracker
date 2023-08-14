@@ -17,16 +17,11 @@ app.listen(port, (req, res) => {
   app.use("/", home);
 });
 
-// https
-//   .createServer(
-//     // Provide the private and public key to the server by reading each
-//     // file's content with the readFileSync() method.
-//     {
-//       key: fs.readFileSync("key.pem"),
-//       cert: fs.readFileSync("cert.pem"),
-//     },
-//     app
-//   )
-//   .listen(port, (req, res, next) => {
-//     app.use("/", home);
-//   });
+// app.use("/login", login);
+
+// app.use("/driver", driver);
+// var http = require('http') , https = require('https') , express = require('express') , app = express();
+
+// http.createServer(app).listen(80); https.createServer({ ... }, app).listen(443);
+
+// app.use("/parent", parent);
