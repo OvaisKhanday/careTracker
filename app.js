@@ -1,8 +1,5 @@
 import express from "express";
-import http from "http";
-import https from "https";
 import "dotenv/config";
-import fs from "fs";
 import home from "./routes/home.js";
 
 const app = express();
