@@ -1,27 +1,21 @@
 import express from "express";
+import mongoose from "mongoose";
 import "dotenv/config";
-import home from "./routes/home.js";
+import connectDB from "./startup/dbConn.js";
+import routes from "./startup/routes.js";
+
+// connect to mongoDB
+connectDB();
 
 const app = express();
 
-// support JSON-encoded and URL-encoded bodies
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+routes(app);
 
 const port = process.env.PORT;
 
-// https.createServer({...}, app).listen(port);
-
-// listen to the server
-app.listen(port, (req, res) => {
-  app.use("/", home);
+mongoose.connection.once("open", () => {
+  console.log("database connected");
+  app.listen(port, () => {
+    console.log(`app listening at http://localhost:${port}`);
+  });
 });
-
-// app.use("/login", login);
-
-// app.use("/driver", driver);
-// var http = require('http') , https = require('https') , express = require('express') , app = express();
-
-// http.createServer(app).listen(80); https.createServer({ ... }, app).listen(443);
-
-// app.use("/parent", parent);
