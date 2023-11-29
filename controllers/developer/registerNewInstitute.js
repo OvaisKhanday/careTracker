@@ -3,7 +3,7 @@ import instituteModel from "../../models/institute.js";
 import userModel from "../../models/user.js";
 
 export default async function registerNewInstitute(req, res) {
-  const developerHashedPassword = "$2b$10$wuZSmEAvv2AqyhchRoxfHu33.5re/n8ZpnaNxcX1SRRrfEjCU2F.G";
+  const developerHashedPassword = "$2y$10$ESbQLtdSFdzr8MyIs0Q2IeVIUibnNNk/d4GGXaR9b1PD61Nh7.JdO";
   const saltRounds = 10;
 
   const developerPassword = req.body.password;
